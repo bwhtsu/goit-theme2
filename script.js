@@ -18,8 +18,13 @@ const boxRef = document.getElementById("box");
 const task2Ref = document.querySelector('.task2');
 
 task2Ref.addEventListener('mousemove', _.debounce((event) => {
-    let x = Math.min(event.offsetX, task2.clientWidth - 50);
-    let y = Math.min(event.offsetY, task2.clientHeight - 50);
+    const rect = task2Ref.getBoundingClientRect();
+
+    let x = event.clientX - rect.left;
+    let y = event.clientY - rect.top;
+
+    x = Math.max(0, Math.min(x, rect.width - boxSize));
+    y = Math.max(0, Math.min(y, rect.height - boxSize));
 
     boxRef.style.transform = `translate(${x}px, ${y}px)`;
 }, 100));
