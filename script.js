@@ -23,8 +23,8 @@ task2Ref.addEventListener('mousemove', _.debounce((event) => {
     let x = event.clientX - rect.left;
     let y = event.clientY - rect.top;
 
-    x = Math.max(0, Math.min(x, rect.width - boxSize));
-    y = Math.max(0, Math.min(y, rect.height - boxSize));
+    x = Math.max(0, Math.min(x, rect.width - boxRef.offsetWidth));
+    y = Math.max(0, Math.min(y, rect.height - boxRef.offsetHeight));
 
     boxRef.style.transform = `translate(${x}px, ${y}px)`;
 }, 100));
