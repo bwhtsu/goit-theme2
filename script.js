@@ -18,6 +18,9 @@ const boxRef = document.getElementById("box");
 const task2Ref = document.querySelector('.task2');
 
 task2Ref.addEventListener('mousemove', _.debounce((event) => {
-    boxRef.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
+    let x = Math.min(event.offsetX, task2.clientWidth - 50);
+    let y = Math.min(event.offsetY, task2.clientHeight - 50);
+
+    boxRef.style.transform = `translate(${x}px, ${y}px)`;
 }, 100));
 
