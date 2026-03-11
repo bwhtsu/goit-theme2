@@ -15,8 +15,9 @@ sliderInputRef.addEventListener("input", _.debounce((event) => {
 // 2.Потрібно забезпечити плавне переміщення об'єкту при русі мишкою. Рішення: використовуйте метод debounce з бібліотеки lodash. Встановіть час затримки в мілісекундах, наприклад 100мс, і передайте функцію, яка буде виконуватися при переміщенні мишкою.
 
 const boxRef = document.getElementById("box");
+const task2Ref = document.querySelector('.task2');
 
-document.addEventListener('mousemove', _.debounce((event) => {
+task2Ref.addEventListener('mousemove', _.debounce((event) => {
     boxRef.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
 }, 100));
 
